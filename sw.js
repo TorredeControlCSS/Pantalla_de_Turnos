@@ -1,18 +1,25 @@
-const CACHE = "turnos-v2";
+const CACHE = "turnos-v3";
 const ASSETS = [
-  "./",
-  "./Pantalla_de_Turnos.html",
-  "./manifest.json",
-  "./icon-192.png",
-  "./icon-512.png"
+  "/Pantalla_de_Turnos/",
+  "/Pantalla_de_Turnos/Pantalla_Turnos.html",
+  "/Pantalla_de_Turnos/manifest.json",
+  "/Pantalla_de_Turnos/icon-192.png",
+  "/Pantalla_de_Turnos/icon-512.png"
 ];
 
-self.addEventListener("install", e=>{
-  e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));
+self.addEventListener("install", e => {
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
 });
 
-self.addEventListener("fetch", e=>{
-  e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request))
+self.addEventListener("activate", e => {
+  e.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
+    )
   );
 });
+
+self.addEventListener("fetch", e => {
+  e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
+});
+
