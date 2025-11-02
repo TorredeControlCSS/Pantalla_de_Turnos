@@ -258,8 +258,9 @@ render();
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/Pantalla_de_Turnos/sw.js');
+  navigator.serviceWorker.register('/Pantalla_de_Turnos/sw.js', { scope: '/Pantalla_de_Turnos/' });
 }
 </script>
 </body>
+
 </html>
