@@ -1,4 +1,4 @@
-const CACHE = "turnos-v6";
+const CACHE = "turnos-v7";
 const ASSETS = [
   "/Pantalla_de_Turnos/",
   "/Pantalla_de_Turnos/index.html",
@@ -22,3 +22,4 @@ self.addEventListener("activate", e => {
 self.addEventListener("fetch", e => {
   e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
 });
+
