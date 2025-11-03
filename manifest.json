@@ -1,7 +1,7 @@
 {
   "name": "Pantalla de Turnos - DINALOG - CSS Panamá",
   "short_name": "Turnos CSS",
-  "start_url": "./Pantalla_de_Turnos/",
+  "start_url": "/Pantalla_de_Turnos/index.html",
   "scope": "/Pantalla_de_Turnos/",
   "display": "standalone",
   "theme_color": "#06122a",
@@ -11,5 +11,6 @@
     {"src": "/Pantalla_de_Turnos/CSS LOGO -512.png", "sizes": "512x512", "type": "image/png"}
   ]
 }
+
 
 
